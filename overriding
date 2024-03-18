@@ -1,0 +1,56 @@
+// Example class for method overloading
+class MathOperations {
+    // Method overloading
+    public int add(int a, int b) {
+        return a + b;
+    }
+
+    public double add(double a, double b) {
+        return a + b;
+    }
+
+    public int add(int a, int b, int c) {
+        return a + b + c;
+    }
+}
+
+// Example class for method overriding
+class Animal {
+    public void makeSound() {
+        System.out.println("Some generic sound");
+    }
+}
+
+class Dog extends Animal {
+    // Method overriding
+    @Override
+    public void makeSound() {
+        System.out.println("Bark");
+    }
+}
+
+class Cat extends Animal {
+    // Method overriding
+    @Override
+    public void makeSound() {
+        System.out.println("Meow");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Method overloading example
+        MathOperations math = new MathOperations();
+        System.out.println("Addition (int): " + math.add(5, 3));
+        System.out.println("Addition (double): " + math.add(5.5, 3.5));
+        System.out.println("Addition (3 numbers): " + math.add(5, 3, 2));
+
+        // Method overriding example
+        Animal dog = new Dog();
+        Animal cat = new Cat();
+        
+        // Calls overridden method based on the object's actual type
+        dog.makeSound(); // Outputs "Bark"
+        cat.makeSound(); // Outputs "Meow"
+    }
+}
