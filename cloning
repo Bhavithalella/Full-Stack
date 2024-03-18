@@ -1,0 +1,59 @@
+public class Organization implements Cloneable {
+    private String organizationCode;
+    private String organizationName;
+    private String organizationAddress;
+
+    public Organization(String organizationCode, String organizationName, String organizationAddress) {
+        this.organizationCode = organizationCode;
+        this.organizationName = organizationName;
+        this.organizationAddress = organizationAddress;
+    }
+
+    // Getter methods
+
+    public String getOrganizationCode() {
+        return organizationCode;
+    }
+
+    public String getOrganizationName() {
+        return organizationName;
+    }
+
+    public String getOrganizationAddress() {
+        return organizationAddress;
+    }
+
+    // Method to print object details
+
+    public void printDetails() {
+        System.out.println("Organization Code: " + organizationCode);
+        System.out.println("Organization Name: " + organizationName);
+        System.out.println("Organization Address: " + organizationAddress);
+    }
+
+    // Override clone method to support cloning
+
+    @Override
+    public Object clone() throws CloneNotSupportedException {
+        return super.clone();
+    }
+
+    public static void main(String[] args) {
+        Organization org1 = new Organization("001", "Example Org", "123 Street, City");
+        try {
+            // Cloning org1 to create a new instance org2
+            Organization org2 = (Organization) org1.clone();
+            
+            // Printing details of org1
+            System.out.println("Details of org1:");
+            org1.printDetails();
+            System.out.println();
+            
+            // Printing details of org2 (cloned object)
+            System.out.println("Details of org2 (cloned object):");
+            org2.printDetails();
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
+    }
+}
