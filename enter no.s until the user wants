@@ -1,0 +1,43 @@
+import java.util.Scanner;
+
+public class NumberStats {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int count = 0;
+        double sum = 0;
+        double largest = Double.MIN_VALUE;
+        double smallest = Double.MAX_VALUE;
+
+        char choice;
+        do {
+            System.out.print("Enter a number: ");
+            double number = scanner.nextDouble();
+
+            // Update sum and count
+            sum += number;
+            count++;
+
+            // Update largest and smallest
+            if (number > largest) {
+                largest = number;
+            }
+            if (number < smallest) {
+                smallest = number;
+            }
+
+            System.out.print("Do you want to enter another number? (y/n): ");
+            choice = scanner.next().charAt(0);
+        } while (choice == 'y' || choice == 'Y');
+
+        // Calculate average
+        double average = sum / count;
+
+        // Display results
+        System.out.println("Largest number entered: " + largest);
+        System.out.println("Smallest number entered: " + smallest);
+        System.out.println("Average of all numbers entered: " + average);
+
+        scanner.close();
+    }
+}
