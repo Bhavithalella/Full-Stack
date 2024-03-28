@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class LibraryFineCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input the number of days late
+        System.out.print("Enter the number of days late: ");
+        int daysLate = scanner.nextInt();
+
+        // Calculate fine based on the number of days late
+        double fine = 0.0;
+        if (daysLate <= 7) {
+            fine = daysLate * 0.50; // 50 paise per day
+        } else if (daysLate >= 8 && daysLate <= 14) {
+            fine = 7 * 0.50 + (daysLate - 7) * 1.00; // 50 paise for the first 7 days, then 1 rupee per day
+        } else if (daysLate > 14 && daysLate <= 21) {
+            fine = 7 * 0.50 + 7 * 1.00 + (daysLate - 14) * 5.00; // 50 paise for the first 7 days, 1 rupee for next 7 days, then 5 rupees per day
+        } else {
+            System.out.println("Your membership is canceled because the book is returned after 21 days.");
+            return;
+        }
+
+        // Output the fine
+        System.out.println("The fine for returning the book " + daysLate + " days late is: Rs. " + fine);
+
+        scanner.close();
+    }
+}
