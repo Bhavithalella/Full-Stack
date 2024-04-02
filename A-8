@@ -1,0 +1,42 @@
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class RestaurantRatingAnalyzer {
+
+    public static void main(String[] args) {
+        List<Integer> restaurantRatings = List.of(4, 8, 6, 7, 3, 9, 5, 8, 10, 2);
+
+        Map<String, Integer> ratingRangesCount = new HashMap<>();
+        ratingRangesCount.put("1-5", 0);
+        ratingRangesCount.put("6-10", 0);
+
+        Map<String, Integer> ratingRangesTotal = new HashMap<>();
+        ratingRangesTotal.put("1-5", 0);
+        ratingRangesTotal.put("6-10", 0);
+
+        for (int rating : restaurantRatings) {
+            if (rating >= 1 && rating <= 5) {
+                ratingRangesCount.put("1-5", ratingRangesCount.get("1-5") + 1);
+                ratingRangesTotal.put("1-5", ratingRangesTotal.get("1-5") + rating);
+            } else if (rating >= 6 && rating <= 10) {
+                ratingRangesCount.put("6-10", ratingRangesCount.get("6-10") + 1);
+                ratingRangesTotal.put("6-10", ratingRangesTotal.get("6-10") + rating);
+            }
+        }
+
+        System.out.println("Number of restaurants rated within specific ranges:");
+        for (Map.Entry<String, Integer> entry : ratingRangesCount.entrySet()) {
+            System.out.println(entry.getKey() + " stars: " + entry.getValue() + " restaurants");
+        }
+
+        System.out.println("\nAverage rating for each range:");
+        for (Map.Entry<String, Integer> entry : ratingRangesTotal.entrySet()) {
+            String range = entry.getKey();
+            int count = ratingRangesCount.get(range);
+            int totalRating = entry.getValue();
+            double averageRating = (double) totalRating / count;
+            System.out.println(range + " stars: " + averageRating);
+        }
+    }
+}
