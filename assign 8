@@ -1,0 +1,49 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class StudentTestScoreAnalyzer {
+
+    public static void main(String[] args) {
+        List<Integer> testScores = List.of(80, 75, 90, 85, 60, 70, 95, 65, 85, 80);
+
+        double averageScore = calculateAverage(testScores);
+        Collections.sort(testScores);
+        int medianScore = calculateMedian(testScores);
+
+        int aboveAverageCount = 0;
+        int atAverageCount = 0;
+        int belowAverageCount = 0;
+
+        for (int score : testScores) {
+            if (score > averageScore) {
+                aboveAverageCount++;
+            } else if (score == averageScore) {
+                atAverageCount++;
+            } else {
+                belowAverageCount++;
+            }
+        }
+
+        System.out.println("Number of students who scored above the average: " + aboveAverageCount + ", Median Score: " + medianScore);
+        System.out.println("Number of students who scored at the average: " + atAverageCount + ", Median Score: " + medianScore);
+        System.out.println("Number of students who scored below the average: " + belowAverageCount + ", Median Score: " + medianScore);
+    }
+
+    private static double calculateAverage(List<Integer> scores) {
+        int sum = 0;
+        for (int score : scores) {
+            sum += score;
+        }
+        return (double) sum / scores.size();
+    }
+
+    private static int calculateMedian(List<Integer> scores) {
+        int size = scores.size();
+        if (size % 2 == 0) {
+            return (scores.get(size / 2 - 1) + scores.get(size / 2)) / 2;
+        } else {
+            return scores.get(size / 2);
+        }
+    }
+}
