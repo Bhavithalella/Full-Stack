@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+</head>
+<body>
+  <h1>Sign Up</h1>
+  <form>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" placeholder="Full name">
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" placeholder="gmail id">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="8 characters">
+
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password" placeholder="8 characters">
+
+    <label for="date_of_birth">Date Of Birth:</label>
+    <input type="date" id="date_of_birth" name="date_of_birth" placeholder="dd/mm/yyyy">
+
+    <label for="gender">Gender:</label>
+    <br>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <br>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+    <br>
+    <input type="radio" id="other" name="gender" value="other">
+    <label for="other">Other</label>
+    <br>
+
+    <label for="photo">Insert your photo:</label>
+    <input type="file" id="photo" name="photo">
+
+    <label for="resume">Insert your resume:</label>
+    <input type="file" id="resume" name="resume">
+
+    <label for="security_question">Security Question:</label>
+    <select id="security_question" name="security_question">
+      <option value="">Select</option>
+      <option value="question1">Question 1</option>
+      <option value="question2">Question 2</option>
+      <option value="question3">Question 3</option>
+    </select>
+
+    <label for="terms">
+      <input type="checkbox" id="terms" name="terms">
+      I agree terms and conditions
+    </label>
+
+    <button type="submit">Register</button>
+  </form>
+</body>
+</html>
